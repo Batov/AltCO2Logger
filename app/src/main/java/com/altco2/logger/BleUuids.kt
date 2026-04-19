@@ -1,0 +1,10 @@
+﻿package com.altco2.logger
+
+import java.util.UUID
+
+object BleUuids {
+    val ESS_SERVICE: UUID = UUID.fromString("0000181A-0000-1000-8000-00805F9B34FB")
+    val CO2_CHAR: UUID = UUID.fromString("00002B8C-0000-1000-8000-00805F9B34FB")
+    val TEMP_CHAR: UUID = UUID.fromString("00002A6E-0000-1000-8000-00805F9B34FB")
+    val CCC_DESC: UUID = UUID.fromString("00002902-0000-1000-8000-00805F9B34FB")
+}
