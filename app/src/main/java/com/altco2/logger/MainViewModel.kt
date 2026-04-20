@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
@@ -50,6 +51,12 @@ class MainViewModel : ViewModel() {
             .setData(Uri.parse("package:${context.packageName}"))
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
+    }
+
+    fun clearMeasurements() {
+        viewModelScope.launch {
+            measurementsDao.clearAll()
+        }
     }
 
 }

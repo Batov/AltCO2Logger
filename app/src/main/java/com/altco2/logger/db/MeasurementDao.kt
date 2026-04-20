@@ -13,4 +13,7 @@ interface MeasurementDao {
 
     @Query("SELECT * FROM measurements ORDER BY timestampMs DESC LIMIT :limit")
     fun observeRecent(limit: Int): Flow<List<MeasurementEntity>>
+
+    @Query("DELETE FROM measurements")
+    suspend fun clearAll()
 }
