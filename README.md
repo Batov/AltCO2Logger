@@ -1,30 +1,36 @@
-﻿# AltCO2 Logger (Android MVP)
+﻿# AltCO2 Logger (Android)
 
-Минимальный Android-логгер для ночного сбора CO2/температуры по BLE с вашей прошивки `AltCO2`.
+Android-приложение для логирования CO2/температуры по BLE с прошивки AltCO2.
 
-## Что делает
+- Firmware repo: [AltCO2](https://github.com/Batov/AltCO2)
 
-- Ищет BLE устройство с именем `AltCO2`
-- Подключается к ESS (0x181A)
-- Подписывается на notify:
+## Возможности
+
+- Поиск BLE-устройства `AltCO2`
+- Подключение к Environmental Sensing Service (`0x181A`)
+- Подписка на характеристики:
   - CO2: `0x2B8C`
   - Temperature: `0x2A6E`
-- Пишет данные в локальную базу Room
-- Показывает live-значения, график CO2 и последние точки
+- Фоновый логгер (foreground service)
+- Сохранение измерений в Room
+- Экран со статусом, live-значениями и графиком CO2
+- Экспорт измерений в CSV
+- Очистка всех сохраненных измерений через кнопку `Clean` с подтверждением
+
+## Скриншот
+
+![AltCO2 Logger Screenshot](docs/screenshot.jpg)
 
 ## Сборка
 
-1. Открыть папку `android_logger` в Android Studio.
-2. Дождаться Sync Gradle.
-3. `Build > Build APK(s)`.
+1. Открыть папку проекта в Android Studio.
+2. Дождаться Gradle Sync.
+3. Собрать debug APK:
+   - `Build > Build APK(s)`
 4. Установить `app-debug.apk` на Android.
 
 ## Для ночной записи
 
-- Дать Bluetooth/Notification permissions.
+- Выдать разрешения Bluetooth/Location/Notifications.
 - Нажать `No Sleep` и разрешить исключение из энергосбережения.
 - Нажать `Start` перед сном.
-
-## Важно
-
-Это MVP. Следующий шаг можно сделать экспорт в CSV/Share и выбор конкретного MAC-адреса устройства.
